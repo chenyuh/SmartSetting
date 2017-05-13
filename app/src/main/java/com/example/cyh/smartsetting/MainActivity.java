@@ -1,5 +1,6 @@
 package com.example.cyh.smartsetting;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -27,6 +28,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //标题
     private List<String> mTitle;
     private List<Fragment> mFragment;
+
+    public static void actionStart(Context context) {
+        Intent intent = new Intent(context, MainActivity.class);
+        context.startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

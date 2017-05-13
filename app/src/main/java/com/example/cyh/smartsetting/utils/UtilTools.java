@@ -1,5 +1,9 @@
 package com.example.cyh.smartsetting.utils;
 
+import android.content.Context;
+import android.graphics.Typeface;
+import android.widget.TextView;
+
 /**
  * 项目名：   SmartSetting
  * 包名：    com.example.cyh.smartsetting.utils
@@ -10,4 +14,9 @@ package com.example.cyh.smartsetting.utils;
  */
 
 public class UtilTools {
+    //设置字体
+    public static void setFont(Context context, TextView textView) {
+        Typeface fontType = Typeface.createFromAsset(context.getAssets(), "fonts/FONT.TTF");
+        textView.setTypeface(fontType);
+    }
 }

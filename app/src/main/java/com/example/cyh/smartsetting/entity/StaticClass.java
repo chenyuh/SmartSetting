@@ -10,4 +10,8 @@ package com.example.cyh.smartsetting.entity;
  */
 
 public class StaticClass {
+    //闪屏页延时
+    public static final int SPLASH_DELAY = 1001;
+    //是否第一次启动app
+    public static final String ISFIRST = "isFirst";
 }
