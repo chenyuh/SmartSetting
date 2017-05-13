@@ -17,7 +17,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private TextView tvSplash;
 
-    private Handler handler = new Handler(){
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -26,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
                     if (isFirst()) {
                         Intent intent = new Intent(SplashActivity.this, GuideActivity.class);
                         startActivity(intent);
-                    }else {
+                    } else {
                         MainActivity.actionStart(SplashActivity.this);
                     }
                     finish();
@@ -55,10 +55,11 @@ public class SplashActivity extends AppCompatActivity {
         if (isFirst) {
             ShareUtil.putBoolean(SplashActivity.this, StaticClass.ISFIRST, false);
             return true;
-        }else {
+        } else {
             return false;
         }
     }
+
     //禁止使用返回键
     @Override
     public void onBackPressed() {

@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cyh.smartsetting">
 
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
     <application
         android:name=".application.BaseApplication"
         android:allowBackup="true"
@@ -10,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.SplashActivity"
+        <activity
+            android:name=".ui.SplashActivity"
             android:theme="@style/NoActionBarFullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +30,9 @@
             android:name=".ui.SettingActivity"
             android:label="@string/setting" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".ui.GuideActivity"></activity>
+        <activity
+            android:name=".ui.GuideActivity"
+            android:theme="@style/NoActionBarFullscreen" />
     </application>
 
 </manifest>

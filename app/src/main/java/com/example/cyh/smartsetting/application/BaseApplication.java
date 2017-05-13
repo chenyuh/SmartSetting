@@ -3,6 +3,9 @@ package com.example.cyh.smartsetting.application;
 import android.app.Application;
 import android.content.Context;
 
+import com.example.cyh.smartsetting.entity.StaticClass;
+import com.tencent.bugly.crashreport.CrashReport;
+
 /**
  * 项目名：   SmartSetting
  * 包名：    com.example.cyh.smartsetting.application
@@ -19,6 +22,8 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        //初始化bugly
+        CrashReport.initCrashReport(getApplicationContext(), StaticClass.BUGLY_APP_ID, true);
         context = getApplicationContext();
     }
 

@@ -14,4 +14,6 @@ public class StaticClass {
     public static final int SPLASH_DELAY = 1001;
     //是否第一次启动app
     public static final String ISFIRST = "isFirst";
+    //Bugly的APPID
+    public static final String BUGLY_APP_ID = "ee4a61e734";
 }
