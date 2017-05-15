@@ -7,7 +7,6 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import com.example.cyh.smartsetting.MainActivity;
 import com.example.cyh.smartsetting.R;
 import com.example.cyh.smartsetting.entity.StaticClass;
 import com.example.cyh.smartsetting.utils.ShareUtil;
@@ -27,7 +26,8 @@ public class SplashActivity extends AppCompatActivity {
                         Intent intent = new Intent(SplashActivity.this, GuideActivity.class);
                         startActivity(intent);
                     } else {
-                        MainActivity.actionStart(SplashActivity.this);
+                        Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                        startActivity(intent);
                     }
                     finish();
                     break;

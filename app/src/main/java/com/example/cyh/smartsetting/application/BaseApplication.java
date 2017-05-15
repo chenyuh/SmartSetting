@@ -6,6 +6,8 @@ import android.content.Context;
 import com.example.cyh.smartsetting.entity.StaticClass;
 import com.tencent.bugly.crashreport.CrashReport;
 
+import cn.bmob.v3.Bmob;
+
 /**
  * 项目名：   SmartSetting
  * 包名：    com.example.cyh.smartsetting.application
@@ -24,6 +26,8 @@ public class BaseApplication extends Application {
         super.onCreate();
         //初始化bugly
         CrashReport.initCrashReport(getApplicationContext(), StaticClass.BUGLY_APP_ID, true);
+        //初始化Bmob
+        Bmob.initialize(getApplicationContext(), StaticClass.BMOB_APP_ID);
         context = getApplicationContext();
     }
 

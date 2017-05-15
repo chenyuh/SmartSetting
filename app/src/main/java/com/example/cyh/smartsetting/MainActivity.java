@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mTitle = new ArrayList<>();
         mTitle.add(this.getString(R.string.butler));
         mTitle.add(this.getString(R.string.wechat));
-        mTitle.add(this.getString(R.string.girl));
+        mTitle.add(this.getString(R.string.beautifulGirl));
         mTitle.add(this.getString(R.string.user));
 
         mFragment = new ArrayList<>();

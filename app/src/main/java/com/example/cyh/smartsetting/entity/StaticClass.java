@@ -16,4 +16,8 @@ public class StaticClass {
     public static final String ISFIRST = "isFirst";
     //Bugly的APPID
     public static final String BUGLY_APP_ID = "ee4a61e734";
+    //Bmob的APPID
+    public static final String BMOB_APP_ID = "69304601af6b1835f911f1bed731a637";
+
+
 }
