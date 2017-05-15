@@ -53,13 +53,13 @@ public class ShareUtil {
     }
 
     //删除单个数据
-    public void deleteValue(Context context, String key) {
+    public static void deleteValue(Context context, String key) {
         SharedPreferences.Editor editor = context.getSharedPreferences(NAME, Context.MODE_PRIVATE).edit();
         editor.remove(key).commit();
     }
 
     //删除所有数据
-    public void deleteAll(Context context) {
+    public static void deleteAll(Context context) {
         SharedPreferences.Editor editor = context.getSharedPreferences(NAME, Context.MODE_PRIVATE).edit();
         editor.clear().commit();
     }

@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.cyh.smartsetting.R;
 import com.example.cyh.smartsetting.entity.MyUser;
+import com.example.cyh.smartsetting.utils.UtilTools;
 
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
@@ -67,40 +68,45 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         !TextUtils.isEmpty(email)) {
                     //判断两次密码是否一致
                     if (password.equals(again)) {
-                        //判断性别
-                        mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                            @Override
-                            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int checkedId) {
-                                if (checkedId == R.id.rb_boy) {
-                                    isGender = true;
-                                } else if (checkedId == R.id.rb_girl) {
-                                    isGender = false;
+                        if (UtilTools.isEmail(email)) {
+                            //判断性别
+                            mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                                @Override
+                                public void onCheckedChanged(RadioGroup radioGroup, @IdRes int checkedId) {
+                                    if (checkedId == R.id.rb_boy) {
+                                        isGender = true;
+                                    } else if (checkedId == R.id.rb_girl) {
+                                        isGender = false;
+                                    }
                                 }
+                            });
+                            //判断简介是否为空
+                            if (TextUtils.isEmpty(desc)) {
+                                desc = getString(R.string.no_thing);
                             }
-                        });
-                        //判断简介是否为空
-                        if (TextUtils.isEmpty(desc)) {
-                            desc = getString(R.string.no_thing);
+                            //注册
+                            MyUser myUser = new MyUser();
+                            myUser.setUsername(userName);
+                            myUser.setPassword(password);
+                            myUser.setEmail(email);
+                            myUser.setAge(Integer.parseInt(age));
+                            myUser.setSex(isGender);
+                            myUser.setDesc(desc);
+                            myUser.signUp(new SaveListener<MyUser>() {
+                                @Override
+                                public void done(MyUser myUser, BmobException e) {
+                                    if(e == null){
+                                        Toast.makeText(RegisterActivity.this, R.string.text_registered_successful, Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    }else{
+                                        Toast.makeText(RegisterActivity.this, R.string.text_registered_failure, Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                        } else {
+                            et_email.setText("");
+                            Toast.makeText(this, R.string.isemail, Toast.LENGTH_SHORT).show();
                         }
-                        //注册
-                        MyUser myUser = new MyUser();
-                        myUser.setUsername(userName);
-                        myUser.setPassword(password);
-                        myUser.setEmail(email);
-                        myUser.setAge(Integer.parseInt(age));
-                        myUser.setSex(isGender);
-                        myUser.setDesc(desc);
-                        myUser.signUp(new SaveListener<MyUser>() {
-                            @Override
-                            public void done(MyUser myUser, BmobException e) {
-                                if(e==null){
-                                    Toast.makeText(RegisterActivity.this, R.string.text_registered_successful, Toast.LENGTH_SHORT).show();
-                                    finish();
-                                }else{
-                                    Toast.makeText(RegisterActivity.this, R.string.text_registered_failure, Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
                     } else {
                         et_password.setText("");
                         et_again.setText("");

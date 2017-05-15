@@ -1,12 +1,12 @@
 package com.example.cyh.smartsetting.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.cyh.smartsetting.MainActivity;
 import com.example.cyh.smartsetting.R;
 import com.example.cyh.smartsetting.adapter.GuideAdapter;
 
@@ -108,11 +108,11 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_start:
-                MainActivity.actionStart(GuideActivity.this);
+                startActivity(new Intent(this, LoginActivity.class));
                 finish();
                 break;
             case R.id.iv_back:
-                MainActivity.actionStart(GuideActivity.this);
+                startActivity(new Intent(this, LoginActivity.class));
                 finish();
                 break;
             default:
