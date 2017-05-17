@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -15,6 +16,7 @@ import com.example.cyh.smartsetting.MainActivity;
 import com.example.cyh.smartsetting.R;
 import com.example.cyh.smartsetting.entity.MyUser;
 import com.example.cyh.smartsetting.utils.ShareUtil;
+import com.example.cyh.smartsetting.view.CustomDialog;
 
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
@@ -26,6 +28,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private Button btnLogin, btnRegister;
     private CheckBox keep_password;
     private TextView tv_forgetPassword;
+    private CustomDialog customDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnLogin.setOnClickListener(this);
         btnRegister.setOnClickListener(this);
         tv_forgetPassword.setOnClickListener(this);
+
+        customDialog = new CustomDialog(this, 180, 180, R.layout.dialog_layout, R.style.theme_dialog, Gravity.CENTER);
+        customDialog.setCancelable(false);
     }
 
     @Override
@@ -63,12 +69,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 String password = et_login_password.getText().toString().trim();
 
                 if (!TextUtils.isEmpty(username) & !TextUtils.isEmpty(password)) {
+                    customDialog.show();
                     MyUser myUser = new MyUser();
                     myUser.setUsername(username);
                     myUser.setPassword(password);
                     myUser.login(new SaveListener<MyUser>() {
                         @Override
                         public void done(MyUser myUser, BmobException e) {
+                            customDialog.dismiss();
                             if (e == null) {
                                 if (myUser.getEmailVerified()) {
                                     MainActivity.actionStart(LoginActivity.this);
