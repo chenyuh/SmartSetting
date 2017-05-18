@@ -20,7 +20,7 @@ import com.example.cyh.smartsetting.R;
 
 public class CustomDialog extends Dialog {
     public CustomDialog(@NonNull Context context, int layout, int style) {
-        this(context, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT, layout, style, Gravity.CENTER);
+        this(context, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT, layout, style, Gravity.CENTER, R.style.pop_anim_style);
     }
 
     public CustomDialog(Context context, int width, int height, int layout, int style, int gtavity, int anim) {

@@ -37,4 +37,10 @@
     <string name="isemail">请输入正确的邮箱</string>
     <string name="reset_successful">重置密码成功</string>
     <string name="dialog_login">正在登陆…</string>
+    <string name="click_write">点击编辑</string>
+    <string name="exit_successful">退出成功!</string>
+    <string name="exit_fail">退出失败</string>
+    <string name="update_successful">更新成功</string>
+    <string name="update_fail">更新失败</string>
+    <string name="cancel">取消</string>
 </resources>
