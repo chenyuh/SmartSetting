@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/et_courier_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="yt"
+        android:hint="@string/courier_name"/>
+    <EditText
+        android:id="@+id/et_courier_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="884803129832320753"
+        android:hint="@string/courier_number"/>
+    <Button
+        android:id="@+id/btn_courier_query"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/button_bg"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:text="@string/courier_query"/>
+    <ListView
+        android:id="@+id/lv_courier"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none"/>
+</LinearLayout>

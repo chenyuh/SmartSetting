@@ -18,7 +18,7 @@
                 android:id="@+id/profile_image"
                 android:layout_width="96dp"
                 android:layout_height="96dp"
-                android:src="@mipmap/cyh"
+                android:src="@drawable/add_pic"
                 app:civ_border_width="1dp"
                 app:civ_border_color="@color/colorPrimary"/>
             <TextView

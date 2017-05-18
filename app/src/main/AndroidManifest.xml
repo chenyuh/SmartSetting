@@ -27,13 +27,11 @@
         <activity android:name=".ui.BaseActivity" />
         <activity
             android:name=".ui.SplashActivity"
-            android:theme="@style/NoActionBarFullscreen">
-
-        </activity>
+            android:theme="@style/NoActionBarFullscreen"></activity>
         <activity
             android:name=".ui.GuideActivity"
             android:theme="@style/NoActionBarFullscreen" />
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,18 +41,22 @@
         <activity
             android:name=".ui.SettingActivity"
             android:label="@string/setting" />
-        <!--android:windowSoftInputMode="stateHidden"不自动弹出键盘-->
+        <!-- android:windowSoftInputMode="stateHidden"不自动弹出键盘 -->
         <activity
             android:name=".ui.LoginActivity"
             android:label="@string/login"
-            android:windowSoftInputMode="adjustResize|stateHidden"/>
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".ui.RegisterActivity"
             android:label="@string/register"
-            android:windowSoftInputMode="adjustResize|stateHidden"/>
-        <activity android:name=".ui.ForgetPasswordActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".ui.ForgetPasswordActivity"
             android:label="@string/forget_possword"
-            android:windowSoftInputMode="adjustResize|stateHidden"/>
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name=".ui.CourierActivity"
+            android:label="@string/courier_query"
+            android:windowSoftInputMode="stateHidden"/>
     </application>
 
 </manifest>

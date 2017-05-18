@@ -30,4 +30,6 @@ public class StaticClass {
     public static final int CROP_REQUEST_CODE = 1004;
     //图片字符串
     public static final String IMAGE_STRING_NAME = "image_string_name";
+    //快递查询appkey
+    public static final String COURIER_APP_KEY = "eb1384430105897a7a5b37287d3f3d3e";
 }

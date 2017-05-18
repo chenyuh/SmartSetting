@@ -23,8 +23,8 @@ import android.widget.Toast;
 import com.example.cyh.smartsetting.R;
 import com.example.cyh.smartsetting.entity.MyUser;
 import com.example.cyh.smartsetting.entity.StaticClass;
+import com.example.cyh.smartsetting.ui.CourierActivity;
 import com.example.cyh.smartsetting.ui.LoginActivity;
-import com.example.cyh.smartsetting.utils.L;
 import com.example.cyh.smartsetting.utils.UtilTools;
 import com.example.cyh.smartsetting.view.CustomDialog;
 
@@ -108,6 +108,9 @@ public class userFragment extends Fragment implements View.OnClickListener {
         btn_cancel.setOnClickListener(this);
         btn_picture.setOnClickListener(this);
         btn_camera.setOnClickListener(this);
+
+        tv_courier = (TextView) view.findViewById(R.id.tv_courier);
+        tv_courier.setOnClickListener(this);
     }
     //设置输入框是否可编写
     private void setEnabled(boolean b) {
@@ -193,6 +196,10 @@ public class userFragment extends Fragment implements View.OnClickListener {
             case R.id.btn_camera:
                 toCamera();
                 break;
+            //物流查询
+            case R.id.tv_courier:
+                startActivity(new Intent(getActivity(), CourierActivity.class));
+                break;
         }
     }
     //跳转至相机
@@ -208,7 +215,6 @@ public class userFragment extends Fragment implements View.OnClickListener {
     private void toPicture() {
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
-        L.d("1");
         startActivityForResult(intent, StaticClass.IMAGE_REQUEST_CODE);
         dialog.dismiss();
     }
