@@ -25,6 +25,7 @@ import com.example.cyh.smartsetting.entity.MyUser;
 import com.example.cyh.smartsetting.entity.StaticClass;
 import com.example.cyh.smartsetting.ui.CourierActivity;
 import com.example.cyh.smartsetting.ui.LoginActivity;
+import com.example.cyh.smartsetting.ui.PhoneActivity;
 import com.example.cyh.smartsetting.utils.UtilTools;
 import com.example.cyh.smartsetting.view.CustomDialog;
 
@@ -49,6 +50,7 @@ public class userFragment extends Fragment implements View.OnClickListener {
 
     private CircleImageView profile_image;
     private TextView tv_courier;
+    private TextView tv_phone;
 
     private CustomDialog dialog;
     private Button btn_cancel;
@@ -111,6 +113,8 @@ public class userFragment extends Fragment implements View.OnClickListener {
 
         tv_courier = (TextView) view.findViewById(R.id.tv_courier);
         tv_courier.setOnClickListener(this);
+        tv_phone = (TextView) view.findViewById(R.id.tv_phone);
+        tv_phone.setOnClickListener(this);
     }
     //设置输入框是否可编写
     private void setEnabled(boolean b) {
@@ -199,6 +203,10 @@ public class userFragment extends Fragment implements View.OnClickListener {
             //物流查询
             case R.id.tv_courier:
                 startActivity(new Intent(getActivity(), CourierActivity.class));
+                break;
+            //归属地查询
+            case R.id.tv_phone:
+                startActivity(new Intent(getActivity(), PhoneActivity.class));
                 break;
         }
     }

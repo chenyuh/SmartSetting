@@ -1,7 +1,6 @@
 package com.example.cyh.smartsetting.ui;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class CourierActivity extends AppCompatActivity implements View.OnClickListener {
+public class CourierActivity extends BaseActivity implements View.OnClickListener {
 
     private EditText et_courier_name;
     private EditText et_courier_number;

@@ -46,4 +46,8 @@
     <string name="courier_name">快递名称</string>
     <string name="courier_number">快递单号</string>
     <string name="courier_query">查询物流</string>
+    <string name="edit_phone_number">请输入手机号码</string>
+    <string name="query_phone">归属地查询</string>
+    <string name="phone_fail">输入框不能为空或者请输入正确的手机号码</string>
+    <string name="query">查询</string>
 </resources>
