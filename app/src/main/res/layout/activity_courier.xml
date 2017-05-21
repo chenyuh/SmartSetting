@@ -27,10 +27,12 @@
         android:textColor="@android:color/white"
         android:textSize="20sp"
         android:text="@string/courier_query"/>
+    <!--android:scrollbars="none"取消滚动条-->
     <ListView
         android:id="@+id/lv_courier"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:scrollbars="none"/>
+        android:scrollbars="none"
+        android:divider="@null"/>
 </LinearLayout>

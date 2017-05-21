@@ -257,14 +257,15 @@ public class userFragment extends Fragment implements View.OnClickListener {
         if (bundle != null) {
             Bitmap bitmap =  bundle.getParcelable("data");
             profile_image.setImageBitmap(bitmap);
+            //保存图片
+            UtilTools.putImageToShare(getActivity(), profile_image);
         }
     }
 
     @Override
     public void onDestroy() {
+
         super.onDestroy();
-        //保存图片
-        UtilTools.putImageToShare(getActivity(), profile_image);
     }
 
     //裁剪图片

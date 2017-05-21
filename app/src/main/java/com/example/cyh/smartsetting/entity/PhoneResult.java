@@ -9,7 +9,7 @@ package com.example.cyh.smartsetting.entity;
  * 描述：    手机归属地Json数据
  */
 
-public class PhoneResult extends ParseJson<PhoneResult>{
+public class PhoneResult extends ParseJson<PhoneResult> {
     /**
      * error_code : 0
      * reason : Return Successd!

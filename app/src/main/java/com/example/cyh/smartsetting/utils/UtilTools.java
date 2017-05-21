@@ -38,7 +38,7 @@ public class UtilTools {
         Matcher m = r.matcher(string);
         return m.matches();
     }
-
+    //将图片存储到sharepreference
     public static void putImageToShare(Context context, ImageView imageView) {
         //将图片转换为位图
         BitmapDrawable drawable = (BitmapDrawable) imageView.getDrawable();
@@ -52,7 +52,7 @@ public class UtilTools {
         //将图片存储到SharePreference
         ShareUtil.putString(context, StaticClass.IMAGE_STRING_NAME, imageString);
     }
-
+    //从sharepreference获取图片
     public static void getImageFromShare(Context context, ImageView imageView) {
         //获取字符串
         String imageString = ShareUtil.getString(context, StaticClass.IMAGE_STRING_NAME, "");

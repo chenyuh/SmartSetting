@@ -50,4 +50,6 @@
     <string name="query_phone">归属地查询</string>
     <string name="phone_fail">输入框不能为空或者请输入正确的手机号码</string>
     <string name="query">查询</string>
+    <string name="send">发送</string>
+    <string name="send_content">输入内容</string>
 </resources>
