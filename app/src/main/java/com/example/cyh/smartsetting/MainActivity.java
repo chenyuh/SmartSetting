@@ -30,11 +30,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private List<String> mTitle;
     private List<Fragment> mFragment;
 
-    public static void actionStart(Context context) {
-        Intent intent = new Intent(context, MainActivity.class);
-        context.startActivity(intent);
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

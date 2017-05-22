@@ -1,6 +1,5 @@
-package com.example.cyh.smartsetting.entity;
+package com.example.cyh.smartsetting.utils;
 
-import com.example.cyh.smartsetting.utils.L;
 import com.google.gson.Gson;
 
 /**

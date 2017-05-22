@@ -1,5 +1,7 @@
 package com.example.cyh.smartsetting.entity;
 
+import com.example.cyh.smartsetting.utils.ParseJson;
+
 /**
  * 项目名：   SmartSetting
  * 包名：    com.example.cyh.smartsetting.entity

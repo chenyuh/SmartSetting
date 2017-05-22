@@ -57,10 +57,7 @@ public class ButlerFragment extends Fragment implements View.OnClickListener {
         lv_butler.setAdapter(mAdapter);
 
         String defString = "你好，我是小乖，和我聊聊天吧！";
-        Msg defMsg = new Msg(defString, StaticClass.TYPE_LEFT);
-        mList.add(defMsg);
-        mAdapter.notifyDataSetChanged();
-        lv_butler.setSelection(lv_butler.getBottom());
+        addLeftItem(defString);
     }
 
 
@@ -79,10 +76,7 @@ public class ButlerFragment extends Fragment implements View.OnClickListener {
                 }
                 //判断是否为空
                 if (!TextUtils.isEmpty(send)) {
-                    Msg msgRight = new Msg(send, StaticClass.TYPE_RIGHT);
-                    mList.add(msgRight);
-                    mAdapter.notifyDataSetChanged();
-                    lv_butler.setSelection(lv_butler.getBottom());
+                    addRightItem(send);
                     et_send_content.setText("");
                     //判断是否大于30
                     if (send.length() < 30) {
@@ -95,33 +89,39 @@ public class ButlerFragment extends Fragment implements View.OnClickListener {
                                 L.d(t);
                                 try {
                                     ButlerResult butlerResult = new ButlerResult().getParseJson(t);
-                                    String msg = butlerResult.getResult().getText();
-                                    Msg msgLeft = new Msg(msg, StaticClass.TYPE_LEFT);
-                                    mList.add(msgLeft);
-                                    mAdapter.notifyDataSetChanged();
-                                    lv_butler.setSelection(lv_butler.getBottom());
+                                    String text = butlerResult.getResult().getText();
+                                    addLeftItem(text);
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
                             }
+
                         });
                     } else {
                         et_send_content.setText("");
                         String fail = "小乖目前只认识30个字以内的句子。";
-                        Msg failMsg = new Msg(fail, StaticClass.TYPE_LEFT);
-                        mList.add(failMsg);
-                        mAdapter.notifyDataSetChanged();
-                        lv_butler.setSelection(lv_butler.getBottom());
+                        addLeftItem(fail);
                     }
                 } else {
                     Animation shake = AnimationUtils.loadAnimation(getActivity(), R.anim.shake);
                     et_send_content.startAnimation(shake);
                     Toast.makeText(getActivity(), R.string.text_tost_empty, Toast.LENGTH_SHORT).show();
                 }
-                mAdapter.notifyDataSetChanged();
-                lv_butler.setSelection(lv_butler.getBottom());
                 break;
         }
-
+    }
+    //将文本添加到左边布局
+    public void addLeftItem(String string) {
+        Msg msg = new Msg(string, StaticClass.TYPE_LEFT);
+        mList.add(msg);
+        mAdapter.notifyDataSetChanged();
+        lv_butler.setSelection(lv_butler.getBottom());
+    }
+    //将文本添加到右边布局
+    public void addRightItem(String string) {
+        Msg msg = new Msg(string, StaticClass.TYPE_RIGHT);
+        mList.add(msg);
+        mAdapter.notifyDataSetChanged();
+        lv_butler.setSelection(lv_butler.getBottom());
     }
 }

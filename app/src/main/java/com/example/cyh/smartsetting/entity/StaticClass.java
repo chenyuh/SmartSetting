@@ -42,4 +42,10 @@ public class StaticClass {
     public static final String PHONE_APP_KEY = "9a9a6f4bdc75e0385dd0066b041002f2";
     //问答机器人
     public static final String CHAT_APP_KEY = "7a48539921338ef90866922b21e25f6d";
+    //微信精选key
+    public static final String WECHAT_APP_KEY = "78f723dccf85aea324a3cf0daac97f35";
+    //微信精选标题
+    public static final String WECHAT_TITLE = "title";
+    //微信精选url
+    public static final String WECHAT_URL = "url";
 }

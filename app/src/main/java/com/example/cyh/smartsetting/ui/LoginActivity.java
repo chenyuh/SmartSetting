@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             customDialog.dismiss();
                             if (e == null) {
                                 if (myUser.getEmailVerified()) {
-                                    MainActivity.actionStart(LoginActivity.this);
+                                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                     finish();
                                     Toast.makeText(LoginActivity.this, R.string.login_successful, Toast.LENGTH_SHORT).show();
                                 } else {
