@@ -52,4 +52,5 @@
     <string name="query">查询</string>
     <string name="send">发送</string>
     <string name="send_content">输入内容</string>
+    <string name="text_welfare">福利</string>
 </resources>

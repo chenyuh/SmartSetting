@@ -11,7 +11,6 @@ import android.widget.ProgressBar;
 
 import com.example.cyh.smartsetting.R;
 import com.example.cyh.smartsetting.entity.StaticClass;
-import com.example.cyh.smartsetting.utils.L;
 
 import java.util.List;
 
@@ -20,7 +19,7 @@ public class WebViewActivity extends BaseActivity {
     private ProgressBar progess_bar;
     private WebView mWebView;
     private String url;
-
+    //界面跳转
     public static void actionStart(Context context, List<String> mListTitle,
                                    List<String> mListUrl, int position) {
         Intent intent = new Intent(context, WebViewActivity.class);
@@ -45,7 +44,6 @@ public class WebViewActivity extends BaseActivity {
         Intent intent = getIntent();
         String title = intent.getStringExtra(StaticClass.WECHAT_TITLE);
         url = intent.getStringExtra(StaticClass.WECHAT_URL);
-        L.i(url);
 
         getSupportActionBar().setTitle(title);
         //支持js

@@ -27,17 +27,17 @@
         <activity android:name=".ui.BaseActivity"/>
         <activity
             android:name=".ui.SplashActivity"
-            android:theme="@style/NoActionBarFullscreen"/>
-        <activity
-            android:name=".ui.GuideActivity"
-            android:theme="@style/NoActionBarFullscreen"/>
-        <activity android:name=".MainActivity">
+            android:theme="@style/NoActionBarFullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.GuideActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <activity android:name=".MainActivity"/>
         <activity
             android:name=".ui.SettingActivity"
             android:label="@string/setting"/>

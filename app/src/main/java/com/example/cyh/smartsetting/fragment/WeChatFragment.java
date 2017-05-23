@@ -59,6 +59,7 @@ public class WeChatFragment extends Fragment {
                         String title = result.getResult().getList().get(i).getTitle();
                         data.setTitle(title);
                         data.setSource(result.getResult().getList().get(i).getSource());
+                        data.setFirstImg(result.getResult().getList().get(i).getFirstImg());
                         mList.add(data);
                         mListTitle.add(title);
                         mListUrl.add(result.getResult().getList().get(i).getUrl());

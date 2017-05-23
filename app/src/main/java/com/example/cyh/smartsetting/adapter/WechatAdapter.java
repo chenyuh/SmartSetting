@@ -2,15 +2,19 @@ package com.example.cyh.smartsetting.adapter;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.cyh.smartsetting.R;
 import com.example.cyh.smartsetting.entity.WeChatBean;
+import com.example.cyh.smartsetting.utils.L;
+import com.example.cyh.smartsetting.utils.PicassoUtils;
 
 import java.util.List;
 
@@ -29,11 +33,20 @@ public class WechatAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
     private List<WeChatBean> mList;
     private WeChatBean data;
+    private int width;
+    private int height;
 
     public WechatAdapter(Context mContext, List<WeChatBean> mList) {
         this.mContext = mContext;
         this.mList = mList;
         mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        //获取屏幕宽高
+        WindowManager wm = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics dm = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(dm);
+        width = dm.widthPixels;
+        height = dm.heightPixels;
+        L.i("width:" + width + "height:" + height);
     }
 
     @Override
@@ -72,7 +85,12 @@ public class WechatAdapter extends BaseAdapter {
         data = mList.get(i);
         viewHolder.tv_wechat_title.setText(data.getTitle());
         viewHolder.tv_wechat_source.setText(data.getSource());
-
+        L.i("url:" +data.getFirstImg());
+        if (!TextUtils.isEmpty(data.getFirstImg())) {
+            PicassoUtils.loadImageSize(mContext, data.getFirstImg(), width / 4, height / 10, viewHolder.iv_wechat_img);
+        } else {
+            viewHolder.iv_wechat_img.setImageResource(R.mipmap.cyh);
+        }
         return view;
     }
 
