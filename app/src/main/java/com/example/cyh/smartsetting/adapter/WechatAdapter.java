@@ -85,7 +85,6 @@ public class WechatAdapter extends BaseAdapter {
         data = mList.get(i);
         viewHolder.tv_wechat_title.setText(data.getTitle());
         viewHolder.tv_wechat_source.setText(data.getSource());
-        L.i("url:" +data.getFirstImg());
         if (!TextUtils.isEmpty(data.getFirstImg())) {
             PicassoUtils.loadImageSize(mContext, data.getFirstImg(), width / 4, height / 10, viewHolder.iv_wechat_img);
         } else {

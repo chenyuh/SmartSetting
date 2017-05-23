@@ -7,10 +7,8 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import com.example.cyh.smartsetting.R;
 import com.example.cyh.smartsetting.entity.StaticClass;
 import com.example.cyh.smartsetting.utils.ShareUtil;
-import com.example.cyh.smartsetting.utils.UtilTools;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -38,16 +36,16 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        //setContentView(R.layout.activity_splash);
 
         initView();
     }
 
     private void initView() {
-        handler.sendEmptyMessageDelayed(StaticClass.SPLASH_DELAY, 2000);
-        tvSplash = (TextView) findViewById(R.id.tv_splash);
+        handler.sendEmptyMessageDelayed(StaticClass.SPLASH_DELAY, 1500);
+        /*tvSplash = (TextView) findViewById(R.id.tv_splash);
         //设置字体
-        UtilTools.setFont(SplashActivity.this, tvSplash);
+        UtilTools.setFont(SplashActivity.this, tvSplash);*/
     }
 
     private boolean isFirst() {

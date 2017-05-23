@@ -57,7 +57,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnRegister.setOnClickListener(this);
         tv_forgetPassword.setOnClickListener(this);
 
-        customDialog = new CustomDialog(this, 180, 180, R.layout.dialog_layout, R.style.theme_dialog, Gravity.CENTER);
+        customDialog = new CustomDialog(this,
+                180,
+                180,
+                R.layout.dialog_layout,
+                R.style.theme_dialog,
+                Gravity.CENTER);
         customDialog.setCancelable(false);
     }
 
