@@ -2,6 +2,7 @@ package com.example.cyh.smartsetting.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +36,8 @@ public class GirlFragment extends Fragment {
 
     private PhotoView mPhotoView;
 
+    private SwipeRefreshLayout girl_swipe_refresh;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -63,6 +66,16 @@ public class GirlFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 PicassoUtils.loadImage(getActivity(), mList.get(i), mPhotoView);
                 dialog.show();
+            }
+        });
+
+        girl_swipe_refresh = (SwipeRefreshLayout) view.findViewById(R.id.girl_swipe_refresh);
+        girl_swipe_refresh.setColorSchemeResources(R.color.colorPrimary);
+        girl_swipe_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getGirlData();
+                girl_swipe_refresh.setRefreshing(false);
             }
         });
     }

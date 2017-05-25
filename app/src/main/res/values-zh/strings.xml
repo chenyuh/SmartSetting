@@ -55,4 +55,10 @@
     <string name="concise">简洁</string>
     <string name="intelligence">智能</string>
     <string name="powerful">强大</string>
+    <string name="speak">语音播报</string>
+    <string name="start_speak">开启语音播报</string>
+    <string name="stop_speak">语音播报已关闭</string>
+    <string name="remind_message">短信提醒</string>
+    <string name="stop_message">短信提醒已关闭</string>
+    <string name="start_message">短信提醒已开启</string>
 </resources>

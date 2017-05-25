@@ -58,8 +58,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         tv_forgetPassword.setOnClickListener(this);
 
         customDialog = new CustomDialog(this,
-                180,
-                180,
+                250,
+                250,
                 R.layout.dialog_layout,
                 R.style.theme_dialog,
                 Gravity.CENTER);

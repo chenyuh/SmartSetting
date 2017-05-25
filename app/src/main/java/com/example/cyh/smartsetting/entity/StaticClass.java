@@ -24,6 +24,10 @@ public class StaticClass {
     public static final int TYPE_RIGHT = 1;
     //是否第一次启动app
     public static final String ISFIRST = "isFirst";
+    //语音播报状态
+    public static final String SPEAK = "isSpeak";
+    //短信提醒状态
+    public static final String MESSAGE = "isMessage";
     //Bugly的APPID
     public static final String BUGLY_APP_ID = "ee4a61e734";
     //Bmob的APPID
@@ -48,4 +52,8 @@ public class StaticClass {
     public static final String WECHAT_TITLE = "title";
     //微信精选url
     public static final String WECHAT_URL = "url";
+    //语音APP KEY
+    public static final String VOICE_APP_KEY = "5923f696";
+    //短信广播action
+    public static final String MESSAGE_ACTION = "android.provider.Telephony.SMS_RECEIVED";
 }

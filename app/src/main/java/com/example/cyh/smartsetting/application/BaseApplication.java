@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 
 import com.example.cyh.smartsetting.entity.StaticClass;
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechUtility;
 import com.tencent.bugly.crashreport.CrashReport;
 
 import cn.bmob.v3.Bmob;
@@ -28,6 +30,8 @@ public class BaseApplication extends Application {
         CrashReport.initCrashReport(getApplicationContext(), StaticClass.BUGLY_APP_ID, true);
         //初始化Bmob
         Bmob.initialize(getApplicationContext(), StaticClass.BMOB_APP_ID);
+        //初始化语音
+        SpeechUtility.createUtility(getApplicationContext(), SpeechConstant.APPID + "=" + StaticClass.VOICE_APP_KEY);
         context = getApplicationContext();
     }
 

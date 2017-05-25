@@ -2,6 +2,7 @@ package com.example.cyh.smartsetting.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,8 @@ public class WeChatFragment extends Fragment {
     private List<String> mListTitle = new ArrayList<>();
     private List<String> mListUrl = new ArrayList<>();
 
+    private SwipeRefreshLayout swipe_refresh;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -38,6 +41,17 @@ public class WeChatFragment extends Fragment {
 
     private void findView(View view) {
         lv_wechat = (ListView) view.findViewById(R.id.lv_wechat);
+
+        swipe_refresh = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh);
+        swipe_refresh.setColorSchemeResources(R.color.colorPrimary);
+        swipe_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getWeChatData();
+                swipe_refresh.setRefreshing(false);
+            }
+        });
+
         getWeChatData();
 
         lv_wechat.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -47,6 +61,8 @@ public class WeChatFragment extends Fragment {
             }
         });
     }
+
+
     public void getWeChatData() {
         String url = "http://v.juhe.cn/weixin/query?key=" + StaticClass.WECHAT_APP_KEY + "&ps=50";
         RxVolley.get(url, new HttpCallback() {
