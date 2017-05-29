@@ -28,9 +28,13 @@
     <!-- 手机定位信息，用来为语义等功能提供定位，提供更精准的服务 -->
     <!-- 定位信息是敏感信息，可通过Setting.setLocationEnable(false)关闭定位请求 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <!--短信权限-->
-    <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
+    <!-- 短信权限 -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <!-- 窗口权限 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW"/>
 
     <application
         android:name=".application.BaseApplication"
@@ -56,6 +60,7 @@
         <activity android:name=".MainActivity"/>
         <activity
             android:name=".ui.SettingActivity"
+            android:exported="true"
             android:label="@string/setting"/>
         <!-- android:windowSoftInputMode="stateHidden"不自动弹出键盘 -->
         <activity
@@ -76,10 +81,11 @@
             android:windowSoftInputMode="stateHidden"/>
         <activity
             android:name=".ui.PhoneActivity"
-            android:label="@string/query_phone">
-        </activity>
-        <activity android:name=".ui.WebViewActivity">
-        </activity>
+            android:label="@string/query_phone"/>
+        <activity android:name=".ui.WebViewActivity"/>
+
+        <activity android:name=".ui.UpdateActivity"
+            android:label="@string/update"/>
 
         <service
             android:name=".service.SmsService"

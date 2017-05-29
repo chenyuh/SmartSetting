@@ -62,4 +62,7 @@
     <string name="remind_message">短信提醒</string>
     <string name="stop_message">短信提醒已关闭</string>
     <string name="start_message">短信提醒已开启</string>
+    <string name="new_versioncode">当前已经是最新版本</string>
+    <string name="new_version">有新版本！</string>
+    <string name="update">更新</string>
 </resources>
