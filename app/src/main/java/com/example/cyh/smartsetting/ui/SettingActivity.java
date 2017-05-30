@@ -43,6 +43,8 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     private int versionCode;
     //更新url
     private String url;
+    //apk名称
+    private String apkName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,6 +149,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                             UpdateResult updateResult = new UpdateResult().getParseJson(t);
                             if (versionCode < updateResult.getVersionCode()) {
                                 url = updateResult.getUrl();
+                                apkName = updateResult.getApkName();
                                 //弹提示框
                                 showUpdateDialog(updateResult.getContent());
                             } else {
@@ -168,7 +171,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 .setPositiveButton(getString(R.string.update), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        UpdateActivity.actionStart(SettingActivity.this, url);
+                        UpdateActivity.actionStart(SettingActivity.this, url, apkName);
                     }
                 })
                 .setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
@@ -180,6 +183,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 .show();
     }
 
+    //获取版本号
     private void getVersionNameCode() throws PackageManager.NameNotFoundException {
         PackageManager packageManager = getPackageManager();
         PackageInfo info = packageManager.getPackageInfo(getPackageName(), 0);

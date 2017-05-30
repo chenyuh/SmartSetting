@@ -21,6 +21,16 @@ public class UpdateResult extends ParseJson<UpdateResult> {
 
     private String versionName;
     private int versionCode;
+    private String apkName;
+
+    public String getApkName() {
+        return apkName;
+    }
+
+    public void setApkName(String apkName) {
+        this.apkName = apkName;
+    }
+
     private String content;
     private String url;
 

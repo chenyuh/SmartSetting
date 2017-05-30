@@ -18,6 +18,12 @@ public class StaticClass {
     public static final int CAMERA_REQUEST_CODE = 1003;
     //裁剪请求码
     public static final int CROP_REQUEST_CODE = 1004;
+    //更新成功
+    public static final int UPDATE_SUCCESS = 1005;
+    //更新失败
+    public static final int UPDATE_FAIL = 1006;
+    //更新过程
+    public static final int UPDATE_LOADING = 1007;
     //信息类型为left
     public static final int TYPE_LEFT = 0;
     //信息类型为right
@@ -62,4 +68,6 @@ public class StaticClass {
     public static final String SYSTEM_DIALOG_REASON_RECENT_APPS = "recentapps";
     //更新url
     public static final String UPDATE_URL = "http://192.168.31.238:8080/cyh/config.json";
+    //apk名称
+    public static final String APK_NAME = "apkName";
 }
