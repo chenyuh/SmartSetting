@@ -1,7 +1,6 @@
 package com.example.cyh.smartsetting.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -25,7 +24,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GirlFragment extends Fragment {
+public class GirlFragment extends BaseFragment {
 
     private GridView mGridView;
 
@@ -103,5 +102,15 @@ public class GirlFragment extends Fragment {
                 }
             }
         });
+    }
+
+    @Override
+    public int[] hideSoftByEditViewIds() {
+        return super.hideSoftByEditViewIds();
+    }
+
+    @Override
+    public View[] filterViewByIds() {
+        return super.filterViewByIds();
     }
 }

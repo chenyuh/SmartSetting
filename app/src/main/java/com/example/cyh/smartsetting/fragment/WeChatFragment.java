@@ -1,7 +1,6 @@
 package com.example.cyh.smartsetting.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +20,7 @@ import com.kymjs.rxvolley.client.HttpCallback;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WeChatFragment extends Fragment {
+public class WeChatFragment extends BaseFragment {
 
     private ListView lv_wechat;
     private WechatAdapter adapter;
@@ -87,5 +86,15 @@ public class WeChatFragment extends Fragment {
                 }
             }
         });
+    }
+
+    @Override
+    public int[] hideSoftByEditViewIds() {
+        return super.hideSoftByEditViewIds();
+    }
+
+    @Override
+    public View[] filterViewByIds() {
+        return super.filterViewByIds();
     }
 }

@@ -68,4 +68,7 @@
     <string name="download_success">下载成功</string>
     <string name="download_fail">下载失败</string>
     <string name="download_ok">下载完成</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

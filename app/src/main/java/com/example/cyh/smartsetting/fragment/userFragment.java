@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -36,7 +35,7 @@ import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UpdateListener;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class userFragment extends Fragment implements View.OnClickListener {
+public class userFragment extends BaseFragment implements View.OnClickListener {
 
     private Context mContext;
 
@@ -286,5 +285,11 @@ public class userFragment extends Fragment implements View.OnClickListener {
         //发送数据
         intent.putExtra("return-data", true);
         startActivityForResult(intent, StaticClass.CROP_REQUEST_CODE);
+    }
+
+    @Override
+    public int[] hideSoftByEditViewIds() {
+        int[] ids = {R.id.edit_name, R.id.edit_sex, R.id.edit_age, R.id.edit_des};
+        return ids;
     }
 }

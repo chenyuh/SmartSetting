@@ -2,7 +2,6 @@ package com.example.cyh.smartsetting.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
@@ -21,7 +20,7 @@ import com.example.cyh.smartsetting.view.CustomDialog;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
     private EditText et_login_username;
     private EditText et_login_password;
@@ -132,5 +131,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             ShareUtil.deleteValue(this, "name");
             ShareUtil.deleteValue(this, "password");
         }
+    }
+
+    @Override
+    public int[] hideSoftByEditViewIds() {
+        int[] ids = {R.id.et_login_username, R.id.et_login_password};
+        return ids;
     }
 }

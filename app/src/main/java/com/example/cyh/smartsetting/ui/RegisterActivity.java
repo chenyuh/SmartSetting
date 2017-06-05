@@ -2,7 +2,6 @@ package com.example.cyh.smartsetting.ui;
 
 import android.os.Bundle;
 import android.support.annotation.IdRes;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +16,7 @@ import com.example.cyh.smartsetting.utils.UtilTools;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 
-public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
+public class RegisterActivity extends BaseActivity implements View.OnClickListener {
 
     private EditText et_username;
     private EditText et_age;
@@ -37,6 +36,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         initView();
     }
+
+/*  点击空白隐藏键盘
+    @Override
+    public int[] hideSoftByEditViewIds() {
+        int[] ids = {R.id.et_username, R.id.et_age, R.id.et_desc,
+                R.id.et_password, R.id.et_again, R.id.et_email};
+        return ids;
+    }*/
 
     private void initView() {
         et_username = (EditText) findViewById(R.id.et_username);

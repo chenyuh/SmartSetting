@@ -2,7 +2,6 @@ package com.example.cyh.smartsetting.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +33,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ButlerFragment extends Fragment implements View.OnClickListener {
+public class ButlerFragment extends BaseFragment implements View.OnClickListener {
 
     private ListView lv_butler;
     private EditText et_send_content;
@@ -80,6 +79,7 @@ public class ButlerFragment extends Fragment implements View.OnClickListener {
         String defString = "你好，我是小乖，和我聊聊天吧！";
         addLeftItem(defString);
     }
+
 
 
     @Override
@@ -190,4 +190,16 @@ public class ButlerFragment extends Fragment implements View.OnClickListener {
         public void onEvent(int arg0, int arg1, int arg2, Bundle arg3) {
         }
     };
+
+    @Override
+    public int[] hideSoftByEditViewIds() {
+        int[] ids = {R.id.et_send_content};
+        return ids;
+    }
+
+    @Override
+    public View[] filterViewByIds() {
+        View[] views = {et_send_content, btn_send};
+        return views;
+    }
 }

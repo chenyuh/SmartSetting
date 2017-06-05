@@ -1,6 +1,5 @@
 package com.example.cyh.smartsetting;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,20 +7,19 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 
 import com.example.cyh.smartsetting.fragment.ButlerFragment;
 import com.example.cyh.smartsetting.fragment.GirlFragment;
 import com.example.cyh.smartsetting.fragment.WeChatFragment;
 import com.example.cyh.smartsetting.fragment.userFragment;
+import com.example.cyh.smartsetting.ui.BaseActivity;
 import com.example.cyh.smartsetting.ui.SettingActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
@@ -29,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //标题
     private List<String> mTitle;
     private List<Fragment> mFragment;
+
+    private int pos = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,45 +55,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mFragment.add(new userFragment());
     }
 
-    /*@Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
-            View v = getCurrentFocus();
-            if (isShouldHideInput(v, ev)) {
-
-                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                if (imm != null) {
-                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-                }
-            }
-            return super.dispatchTouchEvent(ev);
-        }
-        // 必不可少，否则所有的组件都不会有TouchEvent了
-        if (getWindow().superDispatchTouchEvent(ev)) {
-            return true;
-        }
-        return onTouchEvent(ev);
-    }
-    public  boolean isShouldHideInput(View v, MotionEvent event) {
-        if (v != null && ((v instanceof EditText))) {
-            int[] leftTop = { 0, 0 };
-            //获取输入框当前的location位置
-            v.getLocationInWindow(leftTop);
-            int left = leftTop[0];
-            int top = leftTop[1];
-            int bottom = top + v.getHeight();
-            int right = left + v.getWidth();
-            if (event.getX() > left && event.getX() < right
-                    && event.getY() > top && event.getY() < bottom) {
-                // 点击的是输入框区域，保留点击EditText的事件
-                return false;
-            } else {
-                return true;
-            }
-        }
-        return false;
-    }*/
-
     //初始化控件
     private void initView() {
 
@@ -111,13 +72,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onPageSelected(int position) {
+                pos = position;
+
                 if (0 == position) {
                     mSetting.setVisibility(View.GONE);
                 } else {
                     mSetting.setVisibility(View.VISIBLE);
                 }
-                //隐藏键盘
-                hideSoftInput(MainActivity.this);
             }
 
             @Override
@@ -149,6 +110,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mTabLayout.setupWithViewPager(mViewPager);
     }
 
+    /**
+     * 传入EditText的Id
+     * 没有传入的EditText不做处理
+     * @return id 数组
+     */
+    @Override
+    public int[] hideSoftByEditViewIds() {
+        if (pos == 0) {
+            return ((ButlerFragment) mFragment.get(pos)).hideSoftByEditViewIds();
+        } else if (pos == 3) {
+            return ((userFragment) mFragment.get(pos)).hideSoftByEditViewIds();
+        }
+        return super.hideSoftByEditViewIds();
+    }
+
+    /**
+     * 传入要过滤的View
+     * 过滤之后点击将不会有隐藏软键盘的操作
+     * @return id 数组
+     */
+    @Override
+    public View[] filterViewByIds() {
+        if (pos == 0) {
+            return ((ButlerFragment) mFragment.get(pos)).filterViewByIds();
+        }
+        return super.filterViewByIds();
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -156,17 +145,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent = new Intent(this, SettingActivity.class);
                 startActivity(intent);
                 break;
-        }
-    }
-    //隐藏键盘
-    public void hideSoftInput(Context mContext) {
-        View v = this.getCurrentFocus();
-        if (v != null && v.getWindowToken() != null) {
-            InputMethodManager manager = (InputMethodManager) mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
-            boolean isOpen = manager.isActive();
-            if (isOpen) {
-                manager.hideSoftInputFromWindow(v.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-            }
         }
     }
 }
